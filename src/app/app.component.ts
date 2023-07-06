@@ -9,10 +9,10 @@ import { JokesService } from './jokes.service';
 export class AppComponent implements OnInit{
   jokes: any[] =[];
   categories: any[] =[];
+  
 
   constructor(
-    private jokesService: JokesService
-  ) {}
+    private jokesService: JokesService) {}
 
   ngOnInit() {
     this.jokesService.getCategories()
@@ -34,4 +34,22 @@ export class AppComponent implements OnInit{
       this.jokes.push(joke);
     });
   }
+
+  getParentMethod() {
+    return {
+      callParentMethod: () => {
+        this.getRandomJoke()
+      }
+    }
+  }
+
+  getRandomJoke(){
+    this.jokesService.getRandomJoke()
+    .subscribe(joke => {
+      this.jokes = [];
+      this.jokes.push(joke);
+    });
+  }
+  
 }
+

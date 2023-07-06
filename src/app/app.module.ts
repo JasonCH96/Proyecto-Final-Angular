@@ -4,17 +4,18 @@ import { HttpClientModule } from '@angular/common/http';
 
 import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
+import { JokesService } from './jokes.service';
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     HttpClientModule,
   ],
-  providers: [],
-  bootstrap: [AppComponent]
+  providers: [JokesService],
+  bootstrap: [AppComponent,]
 })
 export class AppModule { }
